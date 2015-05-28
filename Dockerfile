@@ -1,6 +1,9 @@
 FROM centos:centos6
 MAINTAINER Guuuo <im@kuo.io>
 
+sudo echo "DOCKER_OPTS=\"\$DOCKER_OPTS --registry-mirror=http://xuyutom.m.alauda.cn\"" >> /etc/default/docker
+service docker restart
+
 #install tools
 RUN yum -y update; yum clean all
 RUN yum install -y wget unzip tar git; yum clean all
